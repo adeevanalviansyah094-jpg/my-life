@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Untuk Kamu Sayangku❤️ ACIL</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- BACKGROUND HEART -->
+<canvas id="hearts"></canvas>
+
+<!-- ================= APP WRAPPER (INI YANG PENTING) ================= -->
+<div class="app">
+
+    <!-- NAVBAR (APP STYLE) -->
+    <div class="nav">
+        <button onclick="showPage('home')">🏠</button>
+        <button onclick="showPage('surat')">💌</button>
+        <button onclick="showPage('galeri')">📸</button>
+        <button onclick="showPage('timeline')">⏳</button>
+        <button onclick="surprise()">🎁</button>
+    </div>
+
+    <!-- ================= HOME PAGE ================= -->
+    <div id="home" class="page active">
+        <div class="card">
+            <img src="foto.jpg" class="photo">
+
+            <h1 id="typing"></h1>
+            <p>Aku Mencintaimu Lebih Dari Yang Kamu Bayangkan,Setiap jam,Setiap Menit Dan Setiap Detik Aku akan selalu mencintaimu💖</p>
+
+            <button onclick="playMusic()">🎵 Play Musik</button>
+        </div>
+    </div>
+
+    <!-- ================= SURAT PAGE ================= -->
+    <div id="surat" class="page">
+        <div class="card">
+            <h2>💌 Surat Cinta</h2>
+            <p id="suratText"></p>
+        </div>
+    </div>
+
+    <!-- ================= GALERI PAGE ================= -->
+    <div id="galeri" class="page">
+        <div class="card gallery">
+            <h2>📸 Kenangan Kita</h2>
+
+            <img src="kenangan1.jpg">
+            <img src="kenangan2.jpg">
+            <img src="kenangan3.jpg">
+            <img src="kenangan4.jpg">
+            <img src="kenangan5.jpg">
+            <img src="foto.jpg">
+        </div>
+    </div>
+
+    <!-- ================= TIMELINE PAGE ================= -->
+    <div id="timeline" class="page">
+        <div class="card">
+            <h2>⏳ Hari Kita</h2>
+            <p id="hari"></p>
+        </div>
+    </div>
+
+</div>
+
+<!-- ================= POPUP ROMANTIS ================= -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h2>Untuk Kamu ❤️</h2>
+
+        <p id="popupText"></p>
+
+        <button onclick="closePopup()">Tutup 💕</button>
+    </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="music">
+    <source src="i love you so.mp3" type="audio/mp3">
+</audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
