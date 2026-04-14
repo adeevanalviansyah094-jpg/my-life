@@ -1,0 +1,264 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+
+    background: url("bg.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* DARK OVERLAY */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+
+/* ================= HEART CANVAS ================= */
+#hearts {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ================= APP WRAPPER ================= */
+.app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* ================= NAVBAR ================= */
+.nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 10px;
+
+    padding: 10px 15px;
+    border-radius: 40px;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.nav button {
+    border: none;
+    padding: 10px 14px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.2);
+    color: white;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.nav button:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.4);
+}
+
+/* ================= PAGE SYSTEM (APP STYLE) ================= */
+.page {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transform: scale(0.95) translateX(50px);
+    pointer-events: none;
+
+    transition: all 0.5s ease;
+}
+
+/* ACTIVE PAGE */
+.page.active {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+    pointer-events: auto;
+}
+
+/* EXIT ANIMATION */
+.page.exit {
+    opacity: 0;
+    transform: scale(1.05) translateX(-60px);
+}
+
+/* ================= CARD ================= */
+.card {
+    padding: 40px;
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    color: white;
+
+    animation: cardIn 0.8s ease;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ================= TYPOGRAPHY ================= */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* ================= PHOTO ================= */
+.photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    margin-bottom: 15px;
+    border: 3px solid white;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* ================= BUTTON ================= */
+button {
+    margin-top: 10px;
+    padding: 10px 25px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: white;
+    color: #ff4b7d;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255,75,125,0.4);
+}
+
+/* ================= GALERI ================= */
+.gallery img {
+    width: 90px;
+    margin: 5px;
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.2);
+}
+
+/* ================= POPUP ================= */
+.popup {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.7);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.4s;
+    z-index: 999;
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    padding: 35px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(25px);
+
+    color: white;
+    text-align: center;
+
+    animation: popupIn 0.5s ease;
+}
+
+@keyframes popupIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ================= LOVE EFFECT ================= */
+.love {
+    position: absolute;
+    font-size: 18px;
+    animation: loveFloat 2.5s ease forwards;
+}
+
+@keyframes loveFloat {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-200px); opacity: 0; }
+}
